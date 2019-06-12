@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { NewsComponent } from './news/news.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PriceComponent } from './price/price.component';
+import { NewServiceService } from "./new-service.service";
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -40,7 +41,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [NewServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
