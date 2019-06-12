@@ -1,13 +1,6 @@
-.first{
-  font-size: 30px;
+.class1{
+  color: red;
 }
-.last{
-  font-size: 35px;
-}
-.even{
-  color: green;
-  background: grey;
-}
-.odd{
-  color: blue;
+.class2{
+  color: yellow;
 }
