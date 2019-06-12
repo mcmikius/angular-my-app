@@ -7,13 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MynewcomponentComponent } from './mynewcomponent/mynewcomponent.component';
 import { DateComponent } from './date/date.component';
-import { FormsModule } from "@angular/forms";
+import { FormsModule } from '@angular/forms';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { NewsComponent } from './news/news.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PriceComponent } from './price/price.component';
-import { NewServiceService } from "./new-service.service";
+import { NewServiceService } from './new-service.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -21,7 +22,7 @@ const appRoutes: Routes = [
   {path: 'news', component: NewsComponent},
   {path: '**', component: NotFoundComponent},
   {path: 'price', component: PriceComponent},
-]
+];
 
 
 @NgModule({
@@ -39,7 +40,8 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [NewServiceService],
   bootstrap: [AppComponent]

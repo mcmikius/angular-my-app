@@ -1,24 +1,25 @@
 import {Component} from '@angular/core';
-import {NewServiceService} from "./new-service.service";
+import {NewServiceService} from './new-service.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <div>
-      <h1>Angular routes</h1>
-      <nav>
-        <a routerLink="">Main</a>
-        <a routerLink="/about">About us</a>
-        <a routerLink="/news">News</a>
-        <a routerLink="/price">Price</a>
-      </nav>
-      <router-outlet></router-outlet>
-    </div>`
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'My Developer Blog';
+  userName: string = "";
+  response: any;
 
-  constructor(svc: NewServiceService) {
-    svc.consoleText("Hello world");
+  constructor(private http: HttpClient) {
+
+  }
+
+  search() {
+    this.http.get('https://api.github.com/users/' + this.userName)
+      .subscribe((response) => {
+        this.response = response;
+        console.log(this.response);
+      })
   }
 }
